@@ -9,8 +9,8 @@ In my example, we are going to setup and launch one AWS EC2 instance. Please rea
 2. Have an account on AWS (free Tier if possible). [link](https://aws.amazon.com/free)
 3. Some basic knowledge of AWS.
   * Creating and download your key pair (.pem file). [link](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html)
-  * Set up a VPC security group. [link](https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_SecurityGroups.html)
   * Create your Access key and access secret (one time creation). [link](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_access-keys.html#Using_CreateAccessKey)
+  * Will use default vpc
   * Familiarity with the AWS console.
   * AWS training - I recommend Ryan Kroonemburg on Udemy. [link](https://www.udemy.com/user/ryankroonenburg/)
 
@@ -23,9 +23,8 @@ Take a copy of my git repo. It contains all the files you need for this example.
 Make the following changes to these files in the code you have cloned from me in Git:
 
 Change these values:
-  * main.tf:    ```security_groups = ["CHANGE_ME"]``` # Use the group-name NOT groupID.
   * main.tf:    ```private_key = "${file("VALUE.pem")}"``` # Use your .pem key here. /dir/name.pem.
-  * main.tf:    ```key_name        = "CHANGE_ME"``` # Insert your key name.
+  * main.tf:    ```key_name        = "Add_Your_Keypair_name"``` # Insert your key name.
   * terraform.tfvars: ```access_key = "VALUE_YOUR_ACCESS_KEY"``` # Add your access key
   * terraform.tfvars: ```secret_key = "VALUE_YOUR_SECRET_KEY"``` # Add your secret key
   * files/script.sh: ```MAIL=`sudo cat /tmp/ip.dm | mailx -s "Hello from "$HOSTNAME your@email.com` ```
@@ -46,6 +45,11 @@ I've created a post build script (files/script.sh) that does the following:
 ## Running Terraform to build in AWS
 
 First we should run Terraform plan. This will check our code for syntax and report any issue. If it runs clean it will give you some outout showing you you are ready to proceed. <b>Output below is based on my configuration</b>. If you get errors. please go back and check through your code. I am planning to update some common issues and the bottom of this page so go down and check.
+
+Run terrform init if you haven't done so. needs to be run onece after clone.
+```
+# terraform init
+```
 
 ```
 # terraform plan
