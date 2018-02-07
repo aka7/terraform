@@ -44,12 +44,13 @@ I've created a post build script (files/script.sh) that does the following:
 
 ## Running Terraform to build in AWS
 
-First we should run Terraform plan. This will check our code for syntax and report any issue. If it runs clean it will give you some outout showing you you are ready to proceed. <b>Output below is based on my configuration</b>. If you get errors. please go back and check through your code. I am planning to update some common issues and the bottom of this page so go down and check.
-
-Run terrform init if you haven't done so. needs to be run onece after clone.
+NOTE: Run terrform init if you haven't done so. needs to be run once after clone.
 ```
 # terraform init
 ```
+
+First we should run Terraform plan. This will check our code for syntax and report any issue. If it runs clean it will give you some outout showing you you are ready to proceed. <b>Output below is based on my configuration</b>. If you get errors. please go back and check through your code. I am planning to update some common issues and the bottom of this page so go down and check.
+
 
 ```
 # terraform plan
